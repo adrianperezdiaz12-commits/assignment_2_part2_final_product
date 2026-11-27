@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WayWide Charity - Volunteer Landing Page</title>
+    <link rel="stylesheet" href="styles/styles.css">
+
+
+</head>
+
+<!--=====  This is the Body section   =====-->
+<body>
+
+<!--This is the HTML for my landing page's HEADER-->
+<header>
+    <div class="header-left">
+        <img src="images/logo.png" alt="WayWide Logo" class="logo">
+        <img src="images/waywide_title.png" alt="WayWide Charity" class="title">
+    </div>
+
+    <div class="header-right">
+        <p>“Helping people around the </p>
+        <p>WayWide World"</p>
+    </div>
+</header>
+
+<!-- === The HTML for the Form in my Landing page ==== -->
+
+<section class="adrian-section">
+
+    <img src="images/logo.png"
+         alt="WayWide Logo"
+         class="adrian-logo">
+
+    <div class="form-container">
+
+        <h2>VOLUNTEER NOW</h2>
+
+        <p class="form-description">
+            At WayWide Immigration, volunteers are the heart of everything we do.
+            Every welcoming smile, every donated hour, and every act of kindness
+            helps newcomers feel supported as they begin a new chapter. When you
+            volunteer with us, you’re not just giving your time, you’re giving hope,
+            stability, and a sense of belonging to individuals and families
+            starting fresh.
+        </p>
+
+        <form id="volunteerForm">
+
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text"
+                       id="name"
+                       name="name"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email"
+                       id="email"
+                       name="email"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel"
+                       id="phone"
+                       name="phone"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="postalCode">Postal Code:</label>
+                <input type="text"
+                       id="postalCode"
+                       name="postalCode"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Send WayWide a message:</label>
+                <textarea
+                       id="message"
+                       name="message"
+                       rows="5"
+                       required>
+                </textarea>
+            </div>
+
+            <div class="submit-row">
+                <button type="submit">
+                    Volunteer at WayWide now
+                </button>
+            </div>
+
+        </form>
+
+        <p id="formMessage"></p>
+
+    </div>
+
+</section>
+
+<!-- ==== HTML for my Wider Way blurb section of the Landing page ===== -->
+
+<section class="blurb-section">
+
+    <h2>A Wider Way Forward for Every New Beginning</h2>
+    <p>
+        WayWide Immigration believes that every newcomer deserves safety,
+        dignity, and a real chance to thrive. We’re a community-driven charity
+        dedicated to helping immigrants find stable housing, access essential
+        resources, and build a foundation for a brighter future.
+    </p>
+
+    <p>
+        Moving to a new country can be overwhelming, especially without support.
+        WayWide Immigration bridges that gap by connecting individuals and
+        families with the housing, basic necessities, and the guidance they
+        need to feel at home. We work alongside local partners, volunteers,
+        and compassionate community members to ensure newcomers are welcomed
+        with open arms and practical help. From finding a safe place to live,
+        to providing everyday essentials, we’re here to make the transition
+        smoother, kinder, and full of possibility.
+    </p>
+
+    <p>
+        Volunteering isn’t just about helping others; it’s about building a
+        stronger, more connected community. As part of our team, you will play
+        a direct role in providing housing support, distributing essential
+        supplies, guiding newcomers through local resources, and creating a
+        warm environment where everyone feels included.
+    </p>
+
+</section>
+
+<!--This is the HTML for my landing page's FOOTER-->
+
+<footer>
+    <div class="footer-left">
+        <div class="footer-block">
+            <h4>WayWide Charity Addresses:</h4>
+            <p>Office: 34 Line Lime Ave. Toronto, ON</p>
+            <p>Refugee Residence: 57 Albertson Dr. Toronto, ON</p>
+        </div>
+
+        <div class="footer-block">
+            <h4>Phone Numbers:</h4>
+            <p>+1 (632) 832-3712</p>
+            <p>+1 (384) 937-2273</p>
+        </div>
+
+        <div class="footer-block">
+            <h4>Staff:</h4>
+            <p>Adrian Perez</p>
+            <p>Emerson Perez</p>
+            <p>Hellen Sanchez</p>
+        </div>
+    </div>
+
+    <div class="footer-right">
+        <img src="images/instagram_logo.png" alt="Instagram">
+        <img src="images/X_logo.png" alt="X">
+        <img src="images/Youtube_logo.png" alt="YouTube">
+        <img src="images/facebook_logo.png" alt="Facebook">
+        <img src="images/logo.png" alt="WayWide Logo">
+    </div>
+
+</footer>
+
+<!-- ==== JAVASCRIPT Portion ==== I did use the example provided during class ===-->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("mTTETruFt4zAs4W8o"); 
+        })();
+
+        document.getElementById('volunteerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            emailjs.sendForm('service_ny4e75n', 'template_ssri2eq', this)
+                .then(function() {
+                    alert('Message sent successfully!');
+                    document.getElementById('volunteerForm').reset();
+                }, function(error) {
+                    console.error('EmailJS failed:', error);
+                    alert('There was a problem sending your message. Please try again.');
+                });
+        });
+</script>
+
+</body>
+</html>
